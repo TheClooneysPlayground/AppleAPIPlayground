@@ -7,11 +7,15 @@
 
 import Testing
 @testable import UIKitPlayground
+import UIKit
 
 struct UIKitPlaygroundTests {
 
-    @Test func example() async throws {
+    @Test("UIScene exists during testing!") func sceneExistsDuringTesting() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+
+        let exists = await !UIApplication.shared.connectedScenes.isEmpty
+        #expect(exists)
     }
 
 }
